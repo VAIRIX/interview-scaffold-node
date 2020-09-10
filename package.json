@@ -1,0 +1,14 @@
+{
+  "name": "interview-scaffold-node",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/VAIRIX/interview-scaffold-node.git",
+  "author": "Darío Macchi <dariomac@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
