@@ -6,9 +6,19 @@
   "author": "Darío Macchi <dariomac@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "test": "jest --coverage=true --coverage-reporters=text"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
+  "dependencies": {
+    "jest": "^26.4.2"
   }
 }
