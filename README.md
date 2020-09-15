@@ -1,5 +1,10 @@
 # interview-scaffold-node
 
+This is a scaffold that you can use (or not) in your next live code interview.
+
+## Basic
+This directory contains a scaffold that let you start with a simple Node.js project with nodemon and jest. This scaffold will let you do [LeetCode](https://leetcode.com/) kind of challenges, adding all the restrictions and samples as jest test cases.
+
 1. `yarn init -y` to initialize the node project.
 2. `yarn add nodemon --dev`
 3. Add scripts to `package.json`
@@ -35,6 +40,5 @@ describe('sample test', () => {
   });
 });
 ```
-
 
 n. Don't forget to do `echo "node_modules" > .gitignore` before pushing
