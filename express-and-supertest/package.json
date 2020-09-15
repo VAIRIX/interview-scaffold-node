@@ -1,0 +1,26 @@
+{
+  "name": "interview-scaffold-node",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/VAIRIX/interview-scaffold-node.git",
+  "author": "Darío Macchi <dariomac@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon",
+    "test": "jest --coverage=true --coverage-reporters=text"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "jest": "^26.4.2",
+    "supertest": "^4.0.2"
+  }
+}
