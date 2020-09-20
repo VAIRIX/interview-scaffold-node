@@ -104,5 +104,43 @@ afterAll(() => {
   dispose();
 });
 ```
+## typescript-basic
+
+If the interview can involve a typescript project.
+
+1. `yarn init -y` to initialize the node project.
+2. `yarn add typescript --dev` to instal typescript and make tsc available
+3. `yarn add @types/node --dev` to get type safety and auto-completion on the Node apis like file, path, process, etc.
+4. 
+```
+npx tsc --init --rootDir src --outDir build \
+--esModuleInterop --resolveJsonModule --lib es6 \
+--module commonjs --allowJs true --noImplicitAny true
+```
+5. `mkdir src`
+6. `touch src/index.ts`
+7. `npx tsc`
+8. `yarn add ts-node nodemon --dev`
+9. `touch nodemon.json` and add
+```
+{
+  "watch": ["src"],
+  "ext": ".ts,.js",
+  "ignore": [],
+  "exec": "ts-node ./src/index.ts"
+}
+```
+10. Add scripts to `package.json`
+```
+"scripts": {
+  "dev": "nodemon"
+},
+```
+11. `yarn add rimraf --dev` to add a tool that acts like the `rm -rf`
+12. Then add this script to `package.json`
+```
+"build": "rimraf ./build && tsc",
+"start": "npm run build && node build/index.js"
+```
 
 n. Don't forget to do `echo "node_modules" > .gitignore` before pushing
