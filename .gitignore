@@ -1,3 +1,4 @@
 basic/node_modules
 express-and-supertest/node_modules
 typescript-basic/node_modules
+typescript-basic/build

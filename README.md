@@ -111,7 +111,7 @@ If the interview can involve a typescript project.
 1. `yarn init -y` to initialize the node project.
 2. `yarn add typescript --dev` to instal typescript and make tsc available
 3. `yarn add @types/node --dev` to get type safety and auto-completion on the Node apis like file, path, process, etc.
-4. 
+4. Create a tsconfig.json with this command
 ```
 npx tsc --init --rootDir src --outDir build \
 --esModuleInterop --resolveJsonModule --lib es6 \
@@ -119,7 +119,7 @@ npx tsc --init --rootDir src --outDir build \
 ```
 5. `mkdir src`
 6. `touch src/index.ts`
-7. `npx tsc`
+7. `npx tsc` to compile typescript
 8. `yarn add ts-node nodemon --dev`
 9. `touch nodemon.json` and add
 ```
@@ -142,5 +142,53 @@ npx tsc --init --rootDir src --outDir build \
 "build": "rimraf ./build && tsc",
 "start": "npm run build && node build/index.js"
 ```
+13. `yarn add @types/jest jest ts-jest --dev`
+14. `touch jest.config.js` and add this to the file
+```
+module.exports = {
+  "roots": [
+    "<rootDir>/src"
+  ],
+  "testMatch": [
+    "**/__tests__/**/*.+(ts|tsx|js)",
+    "**/?(*.)+(spec|test).+(ts|tsx|js)"
+  ],
+  "transform": {
+    "^.+\\.(ts|tsx)$": "ts-jest"
+  },
+}
+```
+15. Add this to tsconfig.json
+```
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.(spec|test).ts"]
+```
+16. Add the following entry to `package.json`
+```
+"jest": {
+  "testEnvironment": "node",
+  "coveragePathIgnorePatterns": [
+    "/node_modules/"
+  ]
+}
+```
+17. Add this to script section
+```
+"test": "jest --coverage=true --coverage-reporters=text"
+```
+18. `touch src/index.test.js`
+19. Add this lines to `src/index.test.js`
+```
+beforeAll(() => {
+  process.env.NODE_ENV = 'test';
+});
+
+describe('sample test', () => {
+  it('should be ok', () => {
+    expect(true).toBe(true);
+  });
+});
+```
+20. If VScode complains that Jest methods do not exist, try 'Typescript: Restart TS Server' option in VSCode. (CMD+SHIFT+P)
 
 n. Don't forget to do `echo "node_modules" > .gitignore` before pushing
